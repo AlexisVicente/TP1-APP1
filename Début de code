@@ -1,0 +1,13 @@
+import sys
+from fltk import*
+
+listeligne=[]
+with open(sys.argv[1], 'rb') as f:
+    read_data = f.read()
+for i in range(0,10):
+    print(f'{read_data[i]}')
+    if read_data[i] + read_data[i+1] == '\n':
+        listeligne.append(read_data[0:i])
+        read_data=read_data - read_data[0:i+2]
+print(f'{read_data[0:50]}')
+print(f'{listeligne}')
